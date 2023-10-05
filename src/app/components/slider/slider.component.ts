@@ -1,25 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
 import { MoviesService } from 'src/app/services/movies.service';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  styleUrls: ['./slider.component.scss'],
+  animations: [
+    trigger('slideFade', [
+      state('void', style({ opacity: 0 })),
+      transition('void <=> *', [animate('1s')]),
+    ]),
+  ],
 })
-export class SliderComponent {
+export class SliderComponent implements OnInit {
+  slideIndex!: number;
 
   constructor(public moviesService : MoviesService){}
 
   movies$ = this.moviesService.getPopularMovies();
  
-  // ngOnInit(): void {
-  //   this.getPopularMovies();
-  // }
+    imagesBaseUrl = 'https://image.tmdb.org/t/p/';
 
-  // getPopularMovies(){
-  //   this.moviesService.getPopularMovies().subscribe(data=>this.movies = data);
-  // }
+  ngOnInit(): void {
+    this.changeSlide()
+  }
+
+
  
-
+  changeSlide() {
+    setInterval(() => {
+      this.slideIndex += 1;
+      if (this.slideIndex > 10) {
+        this.slideIndex = 0;
+      }
+    }, 5000);
+  }
 }
