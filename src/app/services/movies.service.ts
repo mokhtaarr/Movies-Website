@@ -6,11 +6,14 @@ import { MoviesDto } from '../types/movie';
   providedIn: 'root'
 })
 export class MoviesService {
- movies:any;
  
+ private apiUrl = "https://api.themoviedb.org/3";
+ private apiKey = "cbd6740c5d5509528864baba95df9c18";
+
   constructor(private http:HttpClient){}
 
    getPopularMovies(){
-    return this.http.get<MoviesDto>('https://api.themoviedb.org/3/movie/popular?api_key=cbd6740c5d5509528864baba95df9c18')
+    return this.http.get<MoviesDto>(
+      `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`)
   }
 }

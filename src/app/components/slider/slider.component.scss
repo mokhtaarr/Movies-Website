@@ -3,8 +3,8 @@
   height: 35rem;
   .slide {
     width: 100%;
-     position: relative;
-    height: 35rem;
+     position: absolute;
+     height: 35rem;
     &-bg {
       height: 35rem;
       position: relative;
@@ -14,7 +14,7 @@
         object-fit: cover;
       }
       &::after {
-        position: absolute;
+        position: absolute; 
         top: 0;
         left: 0;
         content: '';
