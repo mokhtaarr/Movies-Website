@@ -24,11 +24,11 @@ export type TvshowsDto = {
 };
 
 export function mapToMovies(tvshows: Tvshow[]): Movie[] {
-  return tvshows.map((tvshow: Tvshow) => {
+  return tvshows.map((tvshow:Tvshow)=>{
     return {
       ...tvshow,
-      title: tvshow.name,
-      original_title: tvshow.original_name,
+      title : tvshow.name,
+      original_title:tvshow.original_name
     };
   });
 }

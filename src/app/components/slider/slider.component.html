@@ -29,7 +29,7 @@
 </div> -->
 
 <div class="slider" *ngIf="movies$ | async as movies">
-    <ng-container *ngFor="let movie of movies.results;let MovieIndex = index">
+    <ng-container *ngFor="let movie of movies;let MovieIndex = index">
         <div class="slide" *ngIf="MovieIndex === slideIndex" @slideFade>
             <div class="slide-bg">
                 <!-- <img [src]="imagesBaseUrl + 'w1280' + movie.backdrop_path" [alt]="movie.title" /> -->

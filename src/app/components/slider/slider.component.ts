@@ -20,7 +20,7 @@ export class SliderComponent implements OnInit {
 
   constructor(public moviesService : MoviesService){}
 
-  movies$ = this.moviesService.getPopularMovies();
+  movies$ = this.moviesService.getMoviesByType('popular');
  
   imagesBaseUrl = imagesBaseUrl;
 
