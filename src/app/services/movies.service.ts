@@ -21,4 +21,9 @@ export class MoviesService {
     return this.http.get<MoviesDto>(
       `${this.apiUrl}/movie/upcoming?api_key=${this.apiKey}`)
   }
+
+  getTopRatedMovies(){
+    return this.http.get<MoviesDto>(
+      `${this.apiUrl}/movie/top_rated?api_key=${this.apiKey}`)
+  }
 }
