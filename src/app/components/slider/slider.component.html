@@ -1,7 +1,36 @@
-<!-- <div class="slider" *ngIf="movies$ | async as movies">
-    <ng-container *ngFor="let movie of movies.results; let movieIndex = index">
-        <div class="slide" 
-        *ngIf="movieIndex === slideIndex" @slideFade>
+
+<div class="slider" *ngIf="slides">
+    <ng-container *ngFor="let movie of slides;let MovieIndex = index">
+        <div class="slide" *ngIf="MovieIndex === slideIndex" @slideFade>
+            <div class="slide-bg">
+                <img [src]="imagesBaseUrl + 'original' + movie.backdrop_path" [alt]="movie.title" />
+            </div>
+            <div class="slide-pane">
+                <h2 class="title">{{ movie.original_title }}</h2>
+                <div class="meta mb-4">
+                    <div class="rating mb-1">
+                        <i class="pi pi-star-fill"></i>
+                        <span>{{ movie.vote_average }}</span>
+                        <span>/10</span>
+                    </div>
+                    <div class="votes mb-1">
+                        <i class="pi pi-users"></i>
+                        <span>{{ movie.vote_count }}</span>
+                    </div>
+                    <div class="release-date">
+                        <i class="pi pi-calendar"></i>
+                        <span>{{ movie.release_date | date : 'yyyy' }}</span>
+                    </div>
+                </div>
+                <div class="description">{{ movie.overview }}</div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<!-- <div class="slider" *ngIf="slides">
+    <ng-container *ngFor="let movie of slides; let movieIndex = index">
+        <div class="slide" *ngIf="movieIndex === slideIndex" @slideFade>
             <div class="slide-bg">
                 <img [src]="imagesBaseUrl + 'w1280' + movie.backdrop_path" [alt]="movie.title" />
             </div>
@@ -27,33 +56,3 @@
         </div>
     </ng-container>
 </div> -->
-
-<div class="slider" *ngIf="movies$ | async as movies">
-    <ng-container *ngFor="let movie of movies;let MovieIndex = index">
-        <div class="slide" *ngIf="MovieIndex === slideIndex" @slideFade>
-            <div class="slide-bg">
-                <!-- <img [src]="imagesBaseUrl + 'w1280' + movie.backdrop_path" [alt]="movie.title" /> -->
-                <img [src]="imagesBaseUrl + 'original' + movie.backdrop_path" [alt]="movie.title" />
-            </div>
-            <div class="slide-pane">
-                <h2 class="title">{{ movie.original_title }}</h2>
-                <div class="meta mb-4">
-                    <div class="rating mb-1">
-                        <i class="pi pi-star-fill"></i>
-                        <span>{{ movie.vote_average }}</span>
-                        <span>/10</span>
-                    </div>
-                    <div class="votes mb-1">
-                        <i class="pi pi-users"></i>
-                        <span>{{ movie.vote_count }}</span>
-                    </div>
-                    <div class="release-date">
-                        <i class="pi pi-calendar"></i>
-                        <span>{{ movie.release_date | date : 'yyyy' }}</span>
-                    </div>
-                </div>
-                <div class="description">{{ movie.overview }}</div>
-            </div>
-        </div>
-    </ng-container>
-</div>

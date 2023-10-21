@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
 import { animate,state,style,transition,trigger} from '@angular/animations';
 import { imagesBaseUrl } from 'src/app/constants/images-sizes';
+import { Movie } from 'src/app/types/movie';
 
 
 @Component({
@@ -18,20 +19,20 @@ import { imagesBaseUrl } from 'src/app/constants/images-sizes';
 export class SliderComponent implements OnInit {
   // slideIndex!: number;
 
+  @Input() slides: Movie[] = [];
+  @Input() isHeader = false;
+
   constructor(public moviesService : MoviesService){}
 
   movies$ = this.moviesService.getMoviesByType('popular');
  
   imagesBaseUrl = imagesBaseUrl;
-
-  // ngOnInit(): void {
-  //   this.changeSlide()
-  // }
-
     slideIndex = 0 ;
 
    ngOnInit(): void {
-    this.changeSlide()
+    if(!this.isHeader){
+       this.changeSlide()
+    }
   }
 
  
