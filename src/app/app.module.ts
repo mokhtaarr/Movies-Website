@@ -19,6 +19,7 @@ import { ShowsListComponent } from './pages/shows-list/shows-list.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { PaginatorModule } from 'primeng/paginator';
+import { GenresComponent } from './pages/genres/genres.component';
 
 
 
@@ -36,6 +37,7 @@ import { PaginatorModule } from 'primeng/paginator';
     ShowDetailComponent,
     VideoEmbedComponent,
     ShowsListComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,

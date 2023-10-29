@@ -29,3 +29,7 @@ export type Genre = {
   name: string;
 };
 
+export type GenresDto = {
+  genres : Genre[];
+}
+
